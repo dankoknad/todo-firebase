@@ -4,6 +4,51 @@ body {
     font-family: sans-serif;
 }
 
+form {
+    margin-bottom: 30px;
+}
+
 .done {
     color: limegreen;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+li {
+    vertical-align: middle;
+    line-height: 40px;
+}
+
+.toggle {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.delete {
+    margin-left: 10px;
+}
+
+input[type="checkbox"].styled:checked+label:after,
+input[type="radio"].styled:checked+label:after,
+.abc-checkbox input[type=checkbox]:checked+label:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e013";
+}
+
+input[type="checkbox"].styled:checked label:after,
+input[type="radio"].styled:checked label:after,
+.abc-checkbox label:after {
+    padding-left: 4px;
+    padding-top: 2px;
+    font-size: 9px;
+}
+
+.abc-checkbox label::after {
+    left: -1px;
+    top: -11px;
+    color: green;
 }

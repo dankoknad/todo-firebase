@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import logoFirebase from './firebase.png';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css';
 import './App.css';
 import uuidV4 from 'uuid/v4';
 import _ from 'lodash';
+
 
 import base from './base';
 
@@ -80,27 +84,33 @@ class App extends Component {
     const list = (this.state.items.length) 
       ? this.state.items.map((item) => 
         <li key={item.id}>
-          <input type="checkbox" onChange={() => this.toggleTodo(item.id)} checked={item.isDone}/> 
+          <span className="abc-checkbox">
+              <input id={item.id} className="" type="checkbox" onChange={() => this.toggleTodo(item.id)} checked={item.isDone}/> 
+              <label htmlFor={item.id} ></label>
+          </span>
           <span className={item.isDone ? "done" : null}>{item.txt}</span> 
-          <button onClick={this.deleteItem} data-index={item.id}> x </button> 
+          <button className="btn btn-danger delete " onClick={this.deleteItem} data-index={item.id}> x </button> 
         </li>
       ) 
       : <li>Loading ...</li>;
     
-    // console.log("state ", this.state.items);
-
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <img src={logo} className="App-logo" alt="logo React" />
+          <img src={logoFirebase} className="logo-firebase" alt="logo Firebase" />
+          <h2>Welcome to React &amp; Firebase</h2>
         </div>
         <p className="App-intro">
-          Hello
+          Todos:
         </p>
         <br/>
-        <form onSubmit={this.updateList}>
-          <input onChange={this.updateTempItem} value={this.state.tmpItem} />
+        <form className="form-inline" onSubmit={this.updateList}>
+          <input className="form-control" 
+            onChange={this.updateTempItem} 
+            value={this.state.tmpItem}
+            placeholder="todo.."
+          />
         </form>
         <ul>
           { list }
