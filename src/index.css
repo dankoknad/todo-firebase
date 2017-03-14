@@ -10,6 +10,7 @@ form {
 
 .done {
     color: limegreen;
+    text-decoration: line-through;
 }
 
 ul {
@@ -19,7 +20,12 @@ ul {
 
 li {
     vertical-align: middle;
-    line-height: 40px;
+    /*line-height: 40px;*/
+}
+
+.todo {
+    display: inline-block;
+    padding-top: 6px;
 }
 
 .toggle {
@@ -47,8 +53,12 @@ input[type="radio"].styled:checked label:after,
     font-size: 9px;
 }
 
+.abc-checkbox {
+    padding-top: 4px;
+}
+
 .abc-checkbox label::after {
     left: -1px;
-    top: -11px;
+    top: 3px;
     color: green;
 }

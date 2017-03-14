@@ -83,13 +83,13 @@ class App extends Component {
   render() {
     const list = (this.state.items.length) 
       ? this.state.items.map((item) => 
-        <li key={item.id}>
-          <span className="abc-checkbox">
+        <li className="list-group-item clearfix" key={item.id}>
+          <span className="abc-checkbox pull-left">
               <input id={item.id} className="" type="checkbox" onChange={() => this.toggleTodo(item.id)} checked={item.isDone}/> 
               <label htmlFor={item.id} ></label>
           </span>
-          <span className={item.isDone ? "done" : null}>{item.txt}</span> 
-          <button className="btn btn-danger delete " onClick={this.deleteItem} data-index={item.id}> x </button> 
+          <span className={item.isDone ? "todo done" : "todo"}>&nbsp;{item.txt}&nbsp;</span> 
+          <button className="btn btn-danger delete pull-right" onClick={this.deleteItem} data-index={item.id}> x </button> 
         </li>
       ) 
       : <li>Loading ...</li>;
@@ -101,20 +101,27 @@ class App extends Component {
           <img src={logoFirebase} className="logo-firebase" alt="logo Firebase" />
           <h2>Welcome to React &amp; Firebase</h2>
         </div>
-        <p className="App-intro">
-          Todos:
-        </p>
-        <br/>
-        <form className="form-inline" onSubmit={this.updateList}>
-          <input className="form-control" 
-            onChange={this.updateTempItem} 
-            value={this.state.tmpItem}
-            placeholder="todo.."
-          />
-        </form>
-        <ul>
-          { list }
-        </ul>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-6 col-sm-offset-3">
+              <p className="App-intro">
+                Todos:
+              </p>
+
+              <form className="form" onSubmit={this.updateList}>
+                <input className="form-control" 
+                  onChange={this.updateTempItem} 
+                  value={this.state.tmpItem}
+                  placeholder="Next todo.."
+                />
+              </form>
+              <ul className="list-group">
+                { list }
+              </ul>
+
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
