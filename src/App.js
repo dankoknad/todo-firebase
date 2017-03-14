@@ -17,7 +17,8 @@ class App extends Component {
       speed: 0,
       tempSpeed: 0,
       items: [],
-      tmpItem: ''
+      tmpItem: '',
+      filter: 'all'
     };
   }
 
@@ -76,13 +77,31 @@ class App extends Component {
         ...this.state.items.slice(index+1)
       ]
     })
-
-
+  }
+  updateFilter = (e) => {
+    e.preventDefault();
+    const filter = e.target.innerHTML;
+    this.setState({filter});
   }
 
   render() {
-    const list = (this.state.items.length) 
-      ? this.state.items.map((item) => 
+    const unfiltered = this.state.items;
+    const filter = this.state.filter;
+
+    function filtered (unfiltered, filter) {
+      if (filter === "done") {
+        return _.filter(unfiltered, function(o) { return o.isDone; });
+      } else if (filter === "in-progress") {
+        return _.filter(unfiltered, function(o) { return !o.isDone; });
+      } else if (filter === "all") {
+        return unfiltered;
+      }      
+    }  
+
+    const filterdList = filtered(unfiltered, filter);
+
+    const list = (filterdList.length)
+      ? filterdList.map((item) => 
         <li className="list-group-item clearfix" key={item.id}>
           <span className="abc-checkbox pull-left">
               <input id={item.id} className="" type="checkbox" onChange={() => this.toggleTodo(item.id)} checked={item.isDone}/> 
@@ -115,6 +134,11 @@ class App extends Component {
                   placeholder="Next todo.."
                 />
               </form>
+              <div className="btn-group">
+                <a href="#" onClick={this.updateFilter} className="btn btn-default">all</a>
+                <a href="#" onClick={this.updateFilter} className="btn btn-default">in-progress</a>
+                <a href="#" onClick={this.updateFilter} className="btn btn-default">done</a>
+              </div>
               <ul className="list-group">
                 { list }
               </ul>
