@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import logoFirebase from './firebase.png';
+import Header from './Header';
+import Form from './Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css';
 import './App.css';
@@ -91,7 +91,7 @@ class App extends Component {
     function filtered (unfiltered, filter) {
       if (filter === "done") {
         return _.filter(unfiltered, function(o) { return o.isDone; });
-      } else if (filter === "in-progress") {
+      } else if (filter === "in progress") {
         return _.filter(unfiltered, function(o) { return !o.isDone; });
       } else if (filter === "all") {
         return unfiltered;
@@ -114,29 +114,22 @@ class App extends Component {
       : <li>Loading ...</li>;
     
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo React" />
-          <img src={logoFirebase} className="logo-firebase" alt="logo Firebase" />
-          <h2>Welcome to React &amp; Firebase</h2>
-        </div>
+		<div className="App">
+        <Header />
         <div className="container">
           <div className="row">
             <div className="col-sm-6 col-sm-offset-3">
               <p className="App-intro">
                 Todos:
               </p>
-
-              <form className="form" onSubmit={this.updateList}>
-                <input className="form-control" 
-                  onChange={this.updateTempItem} 
-                  value={this.state.tmpItem}
-                  placeholder="Next todo.."
-                />
-              </form>
+              <Form 
+                onSubmit={this.updateList}
+                onChange={this.updateTempItem}
+                value={this.state.tmpItem}
+              />
               <div className="btn-group">
                 <a href="#" onClick={this.updateFilter} className="btn btn-default">all</a>
-                <a href="#" onClick={this.updateFilter} className="btn btn-default">in-progress</a>
+                <a href="#" onClick={this.updateFilter} className="btn btn-default">in progress</a>
                 <a href="#" onClick={this.updateFilter} className="btn btn-default">done</a>
               </div>
               <ul className="list-group">
