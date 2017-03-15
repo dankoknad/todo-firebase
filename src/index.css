@@ -4,6 +4,10 @@ body {
     font-family: sans-serif;
 }
 
+.author {
+    margin-top: 20px;
+}
+
 form {
     margin-bottom: 20px;
 }

@@ -14,8 +14,6 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      speed: 0,
-      tempSpeed: 0,
       items: [],
       tmpItem: '',
       filter: 'all'
@@ -119,9 +117,7 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 col-sm-offset-3">
-              <p className="App-intro">
-                Todos:
-              </p>
+              <p className="App-intro">Add Todo:</p>
               <Form 
                 onSubmit={this.updateList}
                 onChange={this.updateTempItem}
