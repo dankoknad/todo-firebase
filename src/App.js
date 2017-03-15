@@ -37,13 +37,15 @@ class App extends Component {
 
   updateList = (e) => {
     e.preventDefault();
+    const tmpItem = this.state.tmpItem;
+
     const newItem = {
       id: uuidV1(),
-      txt: this.state.tmpItem,
+      txt: tmpItem,
       isDone: false
     }
 
-    this.setState({
+    tmpItem.length && this.setState({
       items: [newItem, ...this.state.items],
       tmpItem: ''
     })
