@@ -110,7 +110,7 @@ class App extends Component {
           <span className={item.isDone ? "todo done" : "todo"}>&nbsp;{item.txt}&nbsp;</span> 
           <button className="btn btn-danger glyphicon glyphicon-remove delete pull-right" onClick={this.deleteItem} data-index={item.id}></button> 
         </li>
-      ) 
+      )
       : <li>Loading ...</li>;
     
     return (
@@ -130,6 +130,7 @@ class App extends Component {
                 <a href="#" onClick={this.updateFilter} className="btn btn-primary">all</a>
                 <a href="#" onClick={this.updateFilter} className="btn btn-success">done</a>
                 <a href="#" onClick={this.updateFilter} className="btn btn-warning">in progress</a>
+                <a href="#" onClick={(e)=> e.preventDefault()} className="btn btn-default btn-fake">visible: {filterdList.length}</a>
               </div>
 
               <ul className="list-group">

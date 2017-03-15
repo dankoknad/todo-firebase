@@ -16,6 +16,14 @@ form {
     margin-bottom: 20px;
 }
 
+.btn-fake:hover,
+.btn-fake:active:focus,
+.btn-fake:focus {
+    background-color: #fff;
+    border-color: #ccc;
+    cursor: default;
+}
+
 .done {
     color: limegreen;
     text-decoration: line-through;
