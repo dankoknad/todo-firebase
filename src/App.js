@@ -90,9 +90,9 @@ class App extends Component {
 
     function filtered (unfiltered, filter) {
       if (filter === "done") {
-        return _.filter(unfiltered, function(o) { return o.isDone; });
+        return _.filter(unfiltered, o => o.isDone);
       } else if (filter === "in progress") {
-        return _.filter(unfiltered, function(o) { return !o.isDone; });
+        return _.filter(unfiltered, o => !o.isDone);
       } else if (filter === "all") {
         return unfiltered;
       }      
@@ -130,7 +130,7 @@ class App extends Component {
                 <a href="#" onClick={this.updateFilter} className="btn btn-primary">all</a>
                 <a href="#" onClick={this.updateFilter} className="btn btn-success">done</a>
                 <a href="#" onClick={this.updateFilter} className="btn btn-warning">in progress</a>
-                <a href="#" onClick={(e)=> e.preventDefault()} className="btn btn-default btn-fake">visible: {filterdList.length}</a>
+                <a href="#" onClick={(e)=> e.preventDefault()} className="btn btn-default btn-fake">items: {filterdList.length}</a>
               </div>
 
               <ul className="list-group">
