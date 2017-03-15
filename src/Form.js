@@ -12,7 +12,7 @@ export default class Form extends Component {
 						placeholder="Next todo.."
 					/>
 					<div className="input-group-btn">
-						<button className="btn btn-default" type="submit">submit</button>
+						<button className="btn btn-default" type="submit" disabled={!value.length}>submit</button>
 					</div>
 				</div>
 			</form>
