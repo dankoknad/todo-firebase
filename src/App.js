@@ -4,7 +4,7 @@ import Form from './Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css';
 import './App.css';
-import uuidV4 from 'uuid/v4';
+import uuidV1 from 'uuid/v1';
 import _ from 'lodash';
 
 
@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   componentWillMount(){
-    this.ref = base.syncState('/react-01/items', {
+    this.ref = base.syncState('/react-01/', {
       context: this,  
       state: 'items'
     });
@@ -40,7 +40,7 @@ class App extends Component {
   updateList = (e) => {
     e.preventDefault();
     const newItem = {
-      id: uuidV4(),
+      id: uuidV1(),
       txt: this.state.tmpItem,
       isDone: false
     }
@@ -108,7 +108,7 @@ class App extends Component {
               <label htmlFor={item.id} ></label>
           </span>
           <span className={item.isDone ? "todo done" : "todo"}>&nbsp;{item.txt}&nbsp;</span> 
-          <button className="btn btn-danger delete pull-right" onClick={this.deleteItem} data-index={item.id}> x </button> 
+          <button className="btn btn-danger glyphicon glyphicon-remove delete pull-right" onClick={this.deleteItem} data-index={item.id}></button> 
         </li>
       ) 
       : <li>Loading ...</li>;
@@ -127,11 +127,13 @@ class App extends Component {
                 onChange={this.updateTempItem}
                 value={this.state.tmpItem}
               />
+              
               <div className="btn-group">
-                <a href="#" onClick={this.updateFilter} className="btn btn-default">all</a>
-                <a href="#" onClick={this.updateFilter} className="btn btn-default">in progress</a>
-                <a href="#" onClick={this.updateFilter} className="btn btn-default">done</a>
+                <a href="#" onClick={this.updateFilter} className="btn btn-primary">all</a>
+                <a href="#" onClick={this.updateFilter} className="btn btn-success">done</a>
+                <a href="#" onClick={this.updateFilter} className="btn btn-warning">in progress</a>
               </div>
+
               <ul className="list-group">
                 { list }
               </ul>

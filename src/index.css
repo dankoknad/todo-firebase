@@ -29,17 +29,13 @@ li {
 
 .todo {
     display: inline-block;
+    max-width: 80%;
     padding-top: 6px;
 }
 
 .toggle {
     display: inline-block;
-    margin-right: 10px;
     vertical-align: middle;
-}
-
-.delete {
-    margin-left: 10px;
 }
 
 input[type="checkbox"].styled:checked+label:after,
