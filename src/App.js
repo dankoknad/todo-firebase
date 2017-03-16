@@ -127,9 +127,9 @@ class App extends Component {
               />
               
               <div className="btn-group">
-                <a href="#" onClick={this.updateFilter} className={filter === "all" ? "btn btn-primary active" : "btn btn-primary"}>all</a>
-                <a href="#" onClick={this.updateFilter} className={filter === "done" ? "btn btn-success active" : "btn btn-success"}>done</a>
-                <a href="#" onClick={this.updateFilter} className={filter === "in progress" ? "btn btn-warning active" : "btn btn-warning"}>in progress</a>
+                <a href="#" onClick={this.updateFilter} className={filter === "all" ? "btn btn-info active" : "btn btn-info"}>all</a>
+                <a href="#" onClick={this.updateFilter} className={filter === "done" ? "btn btn-info active" : "btn btn-info"}>done</a>
+                <a href="#" onClick={this.updateFilter} className={filter === "in progress" ? "btn btn-info active" : "btn btn-info"}>in progress</a>
                 <a href="#" onClick={(e)=> e.preventDefault()} className="btn btn-default btn-fake">items: {filterdList.length}</a>
               </div>
 
