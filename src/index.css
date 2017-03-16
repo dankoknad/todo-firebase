@@ -39,6 +39,10 @@ li {
     /*line-height: 40px;*/
 }
 
+.list-group-item:hover {
+    background-color: #f5f5f5;
+}
+
 .todo {
     display: inline-block;
     max-width: 80%;
