@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Header from './Header';
 import Form from './Form';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -134,7 +135,14 @@ class App extends Component {
               </div>
 
               <ul className="list-group">
-                { list }
+								<ReactCSSTransitionGroup
+									transitionName="list-anim"
+									transitionEnterTimeout={150}
+									transitionLeaveTimeout={250}>
+
+               	 { list }
+									
+								</ReactCSSTransitionGroup>
               </ul>
 
             </div>

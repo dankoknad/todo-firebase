@@ -36,7 +36,6 @@ ul {
 
 li {
     vertical-align: middle;
-    /*line-height: 40px;*/
 }
 
 .list-group-item:hover {
@@ -77,4 +76,22 @@ input[type="radio"].styled:checked label:after,
     left: -1px;
     top: 3px;
     color: green;
+}
+
+.list-anim-enter {
+    transform: scaleY(0);
+}
+
+.list-anim-enter.list-anim-enter-active {
+    transform: scaleY(1);
+    transition: all 150ms ease-in;
+}
+
+.list-anim-leave {
+    transform: scaleY(1);
+}
+
+.list-anim-leave.list-anim-leave-active {
+    transform: scaleY(0);
+    transition: all 250ms ease-in;
 }
