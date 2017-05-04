@@ -62,8 +62,6 @@ class App extends Component {
         ...this.state.items.slice(removeIndex+1)
       ]
     })
-        
-    console.log("removeIndex", removeIndex);
   }
 
   toggleTodo = (id) => {
@@ -89,7 +87,7 @@ class App extends Component {
     const unfiltered = this.state.items;
     const filter = this.state.filter;
 
-    function filtered (unfiltered, filter) {
+		function filtered (unfiltered, filter) {
       if (filter === "done") {
         return _.filter(unfiltered, o => o.isDone);
       } else if (filter === "in progress") {
@@ -102,8 +100,8 @@ class App extends Component {
     const filterdList = filtered(unfiltered, filter);
 
     const list = (filterdList.length)
-      ? filterdList.map((item) => 
-        <li className="list-group-item clearfix" key={item.id}>
+      ? filterdList.map((item, i) => 
+        <li className="list-group-item clearfix" key={i}>
           <span className="abc-checkbox pull-left">
               <input id={item.id} className="" type="checkbox" onChange={() => this.toggleTodo(item.id)} checked={item.isDone}/> 
               <label htmlFor={item.id} ></label>
