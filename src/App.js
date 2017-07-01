@@ -7,24 +7,30 @@ import 'awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css';
 import './App.css';
 import uuidV1 from 'uuid/v1';
 import _ from 'lodash';
-
-
+import dummyData from '../data.json';
 import base from './base';
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      items: [],
+      items: {},
       tmpItem: '',
       filter: 'all'
     };
   }
 
   componentWillMount(){
+		const loadDummyData = () => {
+			if(_.isEmpty(this.state.items)){
+				this.setState({items: dummyData})
+			}
+		}
+
     this.ref = base.syncState('/react-01/', {
       context: this,  
-      state: 'items'
+      state: 'items',
+			then: loadDummyData
     });
    }
 
@@ -110,7 +116,9 @@ class App extends Component {
           <button className="btn btn-danger glyphicon glyphicon-remove delete pull-right" onClick={this.deleteItem} data-index={item.id}></button> 
         </li>
       )
-      : <li>Loading ...</li>;
+      : (_.isEmpty(unfiltered)) 
+				? <li>Loading ...  in nothing loads after max 10 sec - try to refresh the page ;)</li> 
+				: <li>Category <em>{filter}</em> is empty</li>; 
     
     return (
 		<div className="App">
