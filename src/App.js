@@ -10,6 +10,7 @@ import _ from 'lodash';
 import dummyData from '../data.json';
 import base from './base';
 import './polyfils/find';
+import './polyfils/findIndex';
 
 class App extends Component {
   constructor(){
