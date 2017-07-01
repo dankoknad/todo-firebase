@@ -1,6 +1,6 @@
 [ {
   "id" : "a9280140-5e2d-11e7-b1f8-97c8c4931527",
-  "isDone" : false,
+  "isDone" : true,
   "txt" : "Hello!"
 }, {
   "id" : "a56071f0-5e2d-11e7-b1f8-97c8c4931527",
@@ -12,7 +12,7 @@
   "txt" : "Learn Haskell"
 }, {
   "id" : "78b5a940-5e2d-11e7-8e2b-71441e972d4d",
-  "isDone" : false,
+  "isDone" : true,
   "txt" : "Wash the car"
 }, {
   "id" : "6bd6fbc0-5e2d-11e7-8e2b-71441e972d4d",

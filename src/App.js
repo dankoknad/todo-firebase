@@ -9,6 +9,7 @@ import uuidV1 from 'uuid/v1';
 import _ from 'lodash';
 import dummyData from '../data.json';
 import base from './base';
+import './polyfils/find';
 
 class App extends Component {
   constructor(){
